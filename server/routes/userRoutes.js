@@ -1,12 +1,13 @@
-import express from 'express'
-import {registerUser, loginUser} from '../controllers/userController.js'
+import express from "express";
+import { registerUser, loginUser, userCredits } from "../controllers/userController.js";
+import userAuth from "../middlewares/auth.js";
 
-const userRouter = express.Router()
 
-userRouter.post('/register', registerUser)
-userRouter.post('/login', loginUser)
+const userRouter = express.Router();
 
-export default userRouter
+userRouter.post("/register", registerUser);
+userRouter.post("/login", loginUser);
+userRouter.post("/credits", userAuth, userCredits );
 
-// http://localhost:400/api/user/register
-// http://localhost:400/api/user/login
+
+export default userRouter;

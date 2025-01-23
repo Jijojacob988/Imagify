@@ -49,14 +49,16 @@ const AppContextProvider = (props)=>{
             } else {
                 toast.error(data.message);
                 loadCreditsData();
-                
+    
                 if (data.creditBalance === 0) {
-                    navigate('/buy')
+                    navigate('/buy');
+                }
             }
         } catch (error) {
             toast.error(`Error generating image: ${error.message}`);
         }
     };
+    
     
     
     const logout = ()=>{
